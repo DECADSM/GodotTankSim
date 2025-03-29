@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dad8stdylp2tv"]
+
+[ext_resource type="Script" uid="uid://vm7o3mi630v7" path="res://Tank.cs" id="1_2hux0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y7k42"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y7k42"]
+size = Vector3(1, 0.5, 1)
+
+[node name="Tank" type="CharacterBody3D"]
+script = ExtResource("1_2hux0")
+
+[node name="Hull" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_y7k42")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hull"]
+mesh = SubResource("BoxMesh_y7k42")
+skeleton = NodePath("../..")
