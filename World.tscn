@@ -25,3 +25,11 @@ skeleton = NodePath("../CollisionShape3D")
 
 [node name="Tank" parent="." instance=ExtResource("1_c6gwx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0227164, 1.30461, 0.0224414)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.814014, 0.580845, 0, -0.580845, 0.814014, 0, 3.5225, 0)
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.927758, 0.373182, 0, -0.373182, 0.927758, 0, 2.3763, 2.38511)
