@@ -21,3 +21,9 @@ shape = SubResource("BoxShape3D_y7k42")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Hull"]
 mesh = SubResource("BoxMesh_y7k42")
 skeleton = NodePath("../..")
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25862, -0.89532)
+
+[node name="Camera" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.927758, 0.373182, 0, -0.373182, 0.927758, 0, 2.3763, 2.38511)
