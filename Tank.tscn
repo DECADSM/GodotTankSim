@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dad8stdylp2tv"]
+[gd_scene load_steps=7 format=3 uid="uid://dad8stdylp2tv"]
 
 [ext_resource type="Script" uid="uid://bmu81howg5d5o" path="res://tank.gd" id="1_2hux0"]
 
@@ -12,6 +12,14 @@ albedo_color = Color(0.341176, 0.596078, 1, 1)
 material = SubResource("StandardMaterial3D_2hux0")
 size = Vector3(1, 0.5, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_2hux0"]
+size = Vector3(0.5, 0.4, 0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2hux0"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.1
+
 [node name="Tank" type="CharacterBody3D"]
 script = ExtResource("1_2hux0")
 
@@ -22,8 +30,31 @@ shape = SubResource("BoxShape3D_y7k42")
 mesh = SubResource("BoxMesh_y7k42")
 skeleton = NodePath("../..")
 
-[node name="CameraPivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25862, -0.89532)
+[node name="Turret" type="Node3D" parent="Hull"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.414752, 0)
 
-[node name="Camera" type="Camera3D" parent="CameraPivot"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hull/Turret"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0434995, 0)
+mesh = SubResource("BoxMesh_2hux0")
+skeleton = NodePath("../..")
+
+[node name="CameraPivot" type="Marker3D" parent="Hull/Turret"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.67337, -0.89532)
+
+[node name="Camera" type="Camera3D" parent="Hull/Turret/CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.927758, 0.373182, 0, -0.373182, 0.927758, 0, 2.3763, 2.38511)
+
+[node name="LeftTrack" type="Node3D" parent="Hull"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.693243, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hull/LeftTrack"]
+transform = Transform3D(0.0273285, -0.999627, 0, 0.999627, 0.0273285, 0, 0, 0, 1, 0.136515, -0.00373214, 0)
+mesh = SubResource("CylinderMesh_2hux0")
+
+[node name="RightTrack" type="Node3D" parent="Hull"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.866915, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hull/RightTrack"]
+transform = Transform3D(-0.0162832, 0.999867, 0, -0.999867, -0.0162832, 0, 0, 0, 1, -0.316363, 0.0133812, 0)
+mesh = SubResource("CylinderMesh_2hux0")
+skeleton = NodePath("")
