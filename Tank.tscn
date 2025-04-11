@@ -46,3 +46,9 @@ shape = SubResource("BoxShape3D_2hux0")
 
 [node name="HullMesh" type="MeshInstance3D" parent="Hull"]
 mesh = SubResource("BoxMesh_tv66d")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(-4.37114e-08, -0.0202619, 0.999795, 0, 0.999795, 0.0202619, -1, 8.85675e-10, -4.37024e-08, 5.51307, 3.7901, -2.60381e-07)
+fov = 90.0

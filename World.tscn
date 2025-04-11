@@ -27,4 +27,5 @@ skeleton = NodePath("../CollisionShape3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0227164, 1.30461, 0.0224414)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.0168591, 0.999858, 0, -0.999858, -0.0168591, 0, 3.5225, 0)
+transform = Transform3D(1, 0, 0, 0, -0.0168591, 0.999858, 0, -0.999858, -0.0168591, -9.36848, 3.5225, 0)
+light_energy = 0.354

@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends RigidBody3D
 
 class_name TankMovement
 
@@ -11,9 +11,13 @@ enum Suspension_Type {SUSPENSION} #will need to spread this out to make more obj
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-"""
+	mass = tankWeight
+	
 func _input(event):
+	if Input.is_action_pressed("Escape"):
+			get_tree().quit()
+"""
+
 	if event is InputEventMouseMotion:
 		$Hull/Turret.rotation.y -= event.relative.x * sensitivity
 		$Hull/Turret/CameraPivot/Camera.rotation.x -= event.relative.y * sensitivity
