@@ -2,13 +2,17 @@ extends CharacterBody3D
 
 class_name TankMovement
 
-@export var speed = 10 #This is the forward speed of the tank
-@export var rotational_speed = 5 #This is the rotational Speed of the tank
-@export var sensitivity = 0.005
+enum Suspension_Type {SUSPENSION} #will need to spread this out to make more objects/tanks
+
+@export var engineHp = 500 #Horseepower of Engine Base is Jumbo Pershing 
+@export var tankWeight = 45834.2 #in kg, without full load
+@export var shellWeight = 10.94 #in kg, a single 90mm round for the 90mm M3
+@export var suspensionType = Suspension_Type.SUSPENSION
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+"""
 func _input(event):
 	if event is InputEventMouseMotion:
 		$Hull/Turret.rotation.y -= event.relative.x * sensitivity
@@ -25,3 +29,4 @@ func _physics_process(_delta):
 	velocity = ( forward.normalized() * input.y) * speed
 	move_and_slide()
 	#move_and_collide()
+"""
